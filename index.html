@@ -208,6 +208,27 @@ footer {
     color: var(--text); /* Keep text dark for readability inside cards */
     backdrop-filter: blur(5px); /* Adds a modern frosted-glass look */
 }
+#applications {
+    /* Using the direct link to the image I generated for you */
+    background: linear-gradient(rgba(1, 31, 75, 0.8), rgba(1, 31, 75, 0.8)), 
+                url('https://googleusercontent.com/image_generation_content/4') no-repeat center center;
+    background-attachment: fixed;
+    background-size: cover;
+    padding: 100px 0;
+    color: white;
+}
+/*To product availability */
+ status-tag {
+    font-size: 0.75rem;
+    background: var(--secondary);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
 </style>
 </head>
 <body>
@@ -281,12 +302,36 @@ footer {
 </section>
 
     <section id="products">
-        <h2>Products & Prototypes</h2>
- 	   <div class="container">
+    <div class="container">
+        <h2>Products & Prototyping</h2>
+        <div class="grid">
+            
             <div class="card">
-      	  <p>Our current portfolio includes **3D-printed profiled membranes** designed to enhance micro-level mixing and **miniaturized electrochemical sensor arrays** for diagnostic applications.</p>
+		<span class="status-tag">In Development</span>
+                <h3>Profiled Membranes</h3>
+                <p>
+                    Custom <strong>3D-printed profiled membranes</strong> engineered to enhance micro-level mixing and reduce concentration polarization in flow-based systems.
+                </p>
             </div>
-    </section>
+
+            <div class="card">
+                <h3>Electrochemical Sensor Arrays</h3>
+		<span class="status-tag">In Development</span>
+                <p>
+                    <strong>Miniaturized sensor arrays</strong> designed for high-sensitivity diagnostic applications, offering robust performance in complex fluidic environments.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Rapid Prototyping</h3>
+                <p>
+                    Accelerating R&D with functional prototypes of <strong>integrated fluidic cells</strong>, moving from CAD design to experimental validation in days.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
 <footer>
     <div class="container footer-content">
         <div class="footer-left">
