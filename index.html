@@ -37,7 +37,7 @@
 
     /* Header & Hero Section */
     header {
-        background: linear-gradient(rgba(1, 31, 75, 0.45), rgba(1, 31, 75, 0.75)), 
+        background: linear-gradient(rgba(1, 31, 75, 0.75), rgba(1, 31, 75, 0.75)), 
                     url('Hero_EF_BG2.png') no-repeat center center;
         background-size: cover;
         color: white;
@@ -187,13 +187,11 @@ footer {
     }
 }
 #applications {
-    /* The magic 'Parallax' part */
-    background: linear-gradient(rgba(1, 31, 75, 0.8), rgba(1, 31, 75, 0.8)), 
+    /* Changed 0.8 to 0.4 for a much brighter image */
+    background: linear-gradient(rgba(1, 31, 75, 0.4), rgba(1, 31, 75, 0.4)), 
                 url('EF_App_BG.png') no-repeat center center;
-    background-attachment: fixed; /* This keeps the image still while you scroll */
+    background-attachment: fixed; 
     background-size: cover;
-    
-    /* Spacing and text color for contrast */
     padding: 100px 0;
     color: white; 
 }
@@ -206,9 +204,18 @@ footer {
 
 /* Make the cards slightly transparent so the background peeks through */
 #applications .card {
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.95);
     color: var(--text); /* Keep text dark for readability inside cards */
     backdrop-filter: blur(5px); /* Adds a modern frosted-glass look */
+}
+#applications {
+    /* Using the direct link to the image I generated for you */
+    background: linear-gradient(rgba(1, 31, 75, 0.8), rgba(1, 31, 75, 0.8)), 
+                url('https://googleusercontent.com/image_generation_content/4') no-repeat center center;
+    background-attachment: fixed;
+    background-size: cover;
+    padding: 100px 0;
+    color: white;
 }
 /*To product availability */
  status-tag {
