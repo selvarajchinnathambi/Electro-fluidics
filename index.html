@@ -16,57 +16,14 @@
             --accent: #00d2ff;
             --dark: #0a192f;
             --text-main: #333;
-            --text-light: #f1f7fa;
-            --glass: rgba(255, 255, 255, 0.8);
             --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            color: var(--text-main);
-            background-color: #f8fbff;
-            overflow-x: hidden;
-        }
-
-        /* Smooth Scroll */
+        body { font-family: 'Inter', sans-serif; line-height: 1.7; color: var(--text-main); background-color: #f8fbff; overflow-x: hidden; }
         html { scroll-behavior: smooth; }
 
-        /* Typography */
-        h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; }
-
-        /* Header / Hero */
-        header {
-            height: 100vh;
-            background: linear-gradient(135deg, rgba(10, 25, 47, 0.9), rgba(0, 78, 146, 0.8)), 
-                        url('Hero_EF_B2.png') no-repeat center center/cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            padding: 20px;
-            clip-path: polygon(0 0, 100% 0, 100% 90vh, 0 100%);
-        }
-
-        header h1 {
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            letter-spacing: -2px;
-            margin-bottom: 10px;
-            text-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        header p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            opacity: 0.9;
-            font-weight: 300;
-        }
-
-        /* Modern Navigation */
+        /* Navigation */
         nav {
             position: sticky;
             top: 0;
@@ -79,142 +36,55 @@
             z-index: 1000;
             box-shadow: 0 2px 20px rgba(0,0,0,0.05);
         }
+        
+        /* RESTORED: Add to Cart Section (Left Side) */
+        .nav-shop { display: flex; align-items: center; }
+        .nav-shop a { color: var(--primary); font-size: 1.1rem; margin-right: 15px; text-decoration: none; transition: var(--transition); }
+        .nav-shop a:hover { color: var(--accent); transform: scale(1.1); }
 
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark);
-            margin-left: 25px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            transition: var(--transition);
-        }
-
+        .nav-links a { text-decoration: none; color: var(--dark); margin-left: 25px; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; transition: var(--transition); }
         .nav-links a:hover { color: var(--primary); }
 
-        .nav-shop a { color: var(--primary); font-size: 1.1rem; margin-right: 15px; }
-
-        /* Sections */
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: auto;
-            padding: 100px 0;
+        /* Hero */
+        header {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(10, 25, 47, 0.9), rgba(0, 78, 146, 0.8)), 
+                        url('Hero_EF_B2.png') no-repeat center center/cover;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; padding: 20px;
+            clip-path: polygon(0 0, 100% 0, 100% 90vh, 0 100%);
         }
+        header h1 { font-size: clamp(2.5rem, 8vw, 5rem); font-family: 'Montserrat'; letter-spacing: -2px; }
 
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            color: var(--dark);
-            position: relative;
+        /* Container & Layout */
+        .container { width: 90%; max-width: 1200px; margin: auto; padding: 100px 0; }
+        h2 { font-family: 'Montserrat'; font-size: 2.5rem; margin-bottom: 50px; color: var(--dark); position: relative; }
+        h2::after { content: ''; display: block; width: 60px; height: 4px; background: var(--accent); margin-top: 10px; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .card { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); transition: var(--transition); border: 1px solid rgba(0,0,0,0.05); display: flex; flex-direction: column; }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); border-color: var(--accent); }
+
+        /* FULL WIDTH DARK SECTION: Products & Prototyping */
+        #products-fullwidth { 
+            background: linear-gradient(rgba(10, 25, 47, 0.9), rgba(10, 25, 47, 0.9)), 
+                        url('EF_App_B.png') no-repeat center center/cover fixed; 
+            color: white; width: 100%; 
         }
+        #products-fullwidth h2 { color: white; }
+        #products-fullwidth .card { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); color: white; }
+        #products-fullwidth .card h3 { color: var(--accent); }
 
-        h2::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background: var(--accent);
-            margin-top: 10px;
-        }
-
-        /* Grid & Glass Cards */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            transition: var(--transition);
-            border: 1px solid rgba(0,0,0,0.05);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-            border-color: var(--accent);
-        }
-
-        .card i {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-
-        /* Application Section (Fixed BG) */
-        #applications {
-            background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.85)), 
-                        url('EF_App_B.png') no-repeat center center/cover fixed;
-            color: white;
-        }
-
-        #applications h2 { color: white; }
-
-        #applications .card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white;
-        }
-        
-        #applications .card h3 { color: var(--accent); }
-
-        /* Resources / Concepts Section */
+        /* Resources */
         #resources { background: #eef2f7; }
-
-        .concept-link {
-            display: inline-block;
-            margin-top: auto;
-            color: var(--primary);
-            font-weight: bold;
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-
-        /* Status Tags */
-        .status-tag {
-            font-size: 0.7rem;
-            background: var(--accent);
-            color: var(--dark);
-            padding: 4px 12px;
-            border-radius: 50px;
-            font-weight: 700;
-            align-self: flex-start;
-            margin-bottom: 15px;
-        }
+        .concept-link { margin-top: auto; color: var(--primary); font-weight: bold; text-decoration: none; font-size: 0.9rem; }
+        .status-tag { font-size: 0.7rem; background: var(--accent); color: var(--dark); padding: 4px 12px; border-radius: 50px; font-weight: 700; align-self: flex-start; margin-bottom: 15px; }
 
         /* Form */
-        #contact { background: white; border-radius: 40px 40px 0 0; }
-        .form-container { max-width: 700px; margin: 0 auto; }
-        input, textarea {
-            width: 100%;
-            padding: 15px;
-            margin-bottom: 20px;
-            border: 2px solid #eee;
-            border-radius: 10px;
-            font-family: inherit;
-            transition: var(--transition);
-        }
-        input:focus, textarea:focus { border-color: var(--primary); outline: none; }
-        button {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 15px 40px;
-            border-radius: 10px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        button:hover { background: var(--dark); transform: scale(1.05); }
+        .form-container { max-width: 700px; margin: 0 auto; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        input, textarea { width: 100%; padding: 15px; margin-bottom: 20px; border: 2px solid #eee; border-radius: 10px; font-family: inherit; }
+        button { background: var(--primary); color: white; border: none; padding: 15px 40px; border-radius: 10px; font-weight: bold; cursor: pointer; }
 
+        /* Footer */
         footer { background: var(--dark); color: white; padding: 80px 5% 20px; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
         footer a { color: #aaa; text-decoration: none; transition: 0.3s; }
@@ -225,12 +95,13 @@
 
     <nav>
         <div class="nav-shop">
-            <a href="/store"><i class="fa-solid fa-shop"></i></a>
-            <a href="/cart"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="/store" title="Store"><i class="fa-solid fa-shop"></i></a>
+            <a href="/cart" title="Cart"><i class="fa-solid fa-cart-shopping"></i></a>
         </div>
         <div class="nav-links">
             <a href="#home">Home</a>
             <a href="#services">Services</a>
+            <a href="#products-fullwidth">Products</a>
             <a href="#applications">Applications</a>
             <a href="#resources">Resources</a>
             <a href="#contact">Contact</a>
@@ -239,32 +110,32 @@
 
     <header id="home">
         <h1>ELECTRO-FLUIDICS</h1>
-        <p>Bridging Interfacial Science and Industrial Electrification through advanced flow cell engineering.</p>
+        <p>Bridging Interfacial Science and Industrial Electrification</p>
     </header>
 
     <div class="container">
         <section id="about">
             <h2>About Us</h2>
-            <p style="font-size: 1.2rem; max-width: 800px;">
-                Electro-Fluidics is a specialized consultancy and R&D platform dedicated to developing <strong>integrated fluidic flow cells</strong> for sustainable electrochemical technologies. 
+            <p style="font-size: 1.2rem; max-width: 800px; color: #555;">
+                Electro-Fluidics is a specialized consultancy and R&D platform dedicated to developing <strong>integrated fluidic flow cells</strong> for sustainable electrochemical technologies. We investigate electrode–electrolyte interfaces to overcome mass transport limitations and scale laboratory breakthroughs into industrial solutions.
             </p>
         </section>
 
         <section id="services">
-            <h2>Expert Services</h2>
+            <h2 style="margin-top: 60px;">Expert Services</h2>
             <div class="grid">
                 <div class="card reveal">
-                    <i class="fa-solid fa-layer-group"></i>
+                    <i class="fa-solid fa-layer-group" style="color: var(--primary); font-size: 2rem; margin-bottom: 20px;"></i>
                     <h3>Stack Engineering</h3>
                     <p>Analyzing mass transport, shunt currents, and system losses in batteries and electrolyzers.</p>
                 </div>
                 <div class="card reveal">
-                    <i class="fa-solid fa-chart-line"></i>
-                    <h3>Interfacial Analysis & EIS</h3>
+                    <i class="fa-solid fa-chart-line" style="color: var(--primary); font-size: 2rem; margin-bottom: 20px;"></i>
+                    <h3>Interfacial Analysis</h3>
                     <p>Expertise in Electrochemical Impedance Spectroscopy (EIS) for battery aging and biomolecule characterization.</p>
                 </div>
                 <div class="card reveal">
-                    <i class="fa-solid fa-cube"></i>
+                    <i class="fa-solid fa-cube" style="color: var(--primary); font-size: 2rem; margin-bottom: 20px;"></i>
                     <h3>CAD & Prototyping</h3>
                     <p>Leveraging CAD design and 3D printing of customized flow cells and fluidic interfaces.</p>
                 </div>
@@ -272,38 +143,50 @@
         </section>
     </div>
 
-    <section id="applications">
+    <section id="products-fullwidth">
         <div class="container">
-            <h2>Industrial Applications</h2>
+            <h2>Products & Prototyping</h2>
             <div class="grid">
                 <div class="card reveal">
-                    <h3>Energy Storage</h3>
-                    <p>Optimizing aqueous Flow Batteries and micro capacitor arrays for stability.</p>
+                    <span class="status-tag">In Development</span>
+                    <h3>Profiled Membranes</h3>
+                    <p>Custom fabricated membranes engineered to enhance micro-level mixing and ion transport.</p>
                 </div>
                 <div class="card reveal">
-                    <h3>Bioprocess Monitoring</h3>
-                    <p>Integrated Biosensors for real-time detection of metabolites in fluidic environments.</p>
+                    <span class="status-tag">In Development</span>
+                    <h3>Sensor Arrays</h3>
+                    <p>Miniaturized electrochemical arrays for high-sensitivity diagnostic applications.</p>
                 </div>
                 <div class="card reveal">
-                    <h3>Industrial Electrolysis</h3>
-                    <p>Solving mass transport limitations in CO2 Electrolyzers and Electrodialysis stacks.</p>
+                    <i class="fa-solid fa-bolt" style="color: var(--accent); font-size: 2rem; margin-bottom: 20px;"></i>
+                    <h3>Rapid Prototyping</h3>
+                    <p>Transitioning from CAD concept to experimental validation in just days.</p>
                 </div>
             </div>
         </div>
     </section>
+
+    <div class="container" id="applications">
+        <h2>Industrial Applications</h2>
+        <div class="grid">
+            <div class="card reveal"><h3>Energy Storage</h3><p>Optimizing aqueous Flow Batteries and micro capacitor arrays for grid stability.</p></div>
+            <div class="card reveal"><h3>Bioprocess Monitoring</h3><p>Integrated Biosensors for real-time detection of metabolites in fluidic environments.</p></div>
+            <div class="card reveal"><h3>Industrial Electrolysis</h3><p>Solving mass transport limitations in CO2 Electrolyzers and Electrodialysis stacks.</p></div>
+        </div>
+    </div>
 
     <section id="resources">
         <div class="container">
             <h2>Electrochemical Resources</h2>
             <div class="grid">
                 <div class="card reveal">
-                    <h3>EIS Fundamentals</h3>
-                    <p>A guide to understanding Nyquist plots and equivalent circuit modeling.</p>
-                    <a href="#" class="concept-link">Read More →</a>
-                </div>
-                <div class="card reveal">
                     <h3>Mass Transport</h3>
                     <p>Understanding Nernst-Planck equations in flow cell environments.</p>
+                    <a href="analysis.html" class="concept-link">Launch Analysis GUI →</a>
+                </div>
+                <div class="card reveal">
+                    <h3>EIS Fundamentals</h3>
+                    <p>A technical guide to understanding Nyquist plots and equivalent circuit modeling.</p>
                     <a href="#" class="concept-link">Read More →</a>
                 </div>
                 <div class="card reveal">
@@ -314,27 +197,6 @@
             </div>
         </div>
     </section>
-
-    <div class="container" id="products">
-        <h2>Products & Prototyping</h2>
-        <div class="grid">
-            <div class="card reveal">
-                <span class="status-tag">In Development</span>
-                <h3>Profiled Membranes</h3>
-                <p>Custom fabricated membranes engineered to enhance micro-level mixing.</p>
-            </div>
-            <div class="card reveal">
-                <span class="status-tag">In Development</span>
-                <h3>Sensor Arrays</h3>
-                <p>Miniaturized arrays for high-sensitivity diagnostic applications.</p>
-            </div>
-            <div class="card reveal">
-                <i class="fa-solid fa-bolt"></i>
-                <h3>Rapid Prototyping</h3>
-                <p>Moving from CAD design to experimental validation in days.</p>
-            </div>
-        </div>
-    </div>
 
     <section id="contact">
         <div class="container">
@@ -377,22 +239,8 @@
     </footer>
 
     <script>
-        // Modern Scroll Reveal Animations
-        ScrollReveal().reveal('.reveal', {
-            delay: 200,
-            distance: '50px',
-            duration: 1000,
-            origin: 'bottom',
-            interval: 100,
-            easing: 'cubic-bezier(0.5, 0, 0, 1)'
-        });
-
-        ScrollReveal().reveal('h2', {
-            delay: 100,
-            distance: '30px',
-            origin: 'left',
-            duration: 800
-        });
+        ScrollReveal().reveal('.reveal', { delay: 200, distance: '50px', duration: 1000, origin: 'bottom', interval: 100 });
+        ScrollReveal().reveal('h2', { delay: 100, distance: '30px', origin: 'left', duration: 800 });
     </script>
 </body>
 </html>
