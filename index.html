@@ -97,8 +97,10 @@
         transition: background 0.3s;
     }
 
+    /* Keeps background blue and text white on hover */
     .btn-calc:hover {
-        background-color: var(--secondary);
+        background-color: #005a9e; /* Slightly darker blue on hover so it feels responsive */
+        color: #ffffff;            /* Forces text to stay white */
     }
 
     /* Modal Pop-up Styling */
@@ -256,7 +258,7 @@
             <div class="grid">
                 <div class="card reveal">
                    <h3>Mass Transport & Flow Analysis</h3>
-                <p>Interactive dimensional analysis tool for calculating Reynolds ($Re$), Péclet ($Pe$), and Damköhler ($Da$) numbers alongside binding kinetics profiles in microfluidic flow cells.</p>
+                <p>Interactive dimensional analysis tool for calculating Reynolds (Re), Péclet (Pe), and Damköhler (Da) numbers alongside binding kinetics profiles in microfluidic flow cells.</p>
                 <!-- Clickable Modal Trigger -->
                 <button class="btn-calc" onclick="openAppModal()">
                     🚀 Launch Interactive Calculator
