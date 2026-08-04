@@ -82,6 +82,64 @@
         .concept-link { margin-top: auto; color: var(--primary); font-weight: bold; text-decoration: none; font-size: 0.9rem; }
         .status-tag { font-size: 0.7rem; background: var(--accent); color: var(--dark); padding: 4px 12px; border-radius: 50px; font-weight: 700; align-self: flex-start; margin-bottom: 15px; }
 
+        /* Calculator & Resource Launch Buttons */
+    .btn-calc {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 10px 18px;
+        background-color: var(--primary);
+        color: #ffffff;
+        border: none;
+        border-radius: 6px;
+        font-weight: bold;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background 0.3s;
+    }
+
+    .btn-calc:hover {
+        background-color: var(--secondary);
+    }
+
+    /* Modal Pop-up Styling */
+    .modal-overlay {
+        display: none;
+        position: fixed;
+        z-index: 10000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.75);
+        backdrop-filter: blur(3px);
+    }
+
+    .modal-content {
+        position: relative;
+        background-color: #ffffff;
+        margin: 2% auto;
+        padding: 20px;
+        width: 90%;
+        max-width: 1200px;
+        height: 88vh;
+        border-radius: 10px;
+        box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+    }
+
+    .close-btn {
+        position: absolute;
+        right: 20px;
+        top: 10px;
+        font-size: 32px;
+        font-weight: bold;
+        color: #333;
+        cursor: pointer;
+    }
+
+    .close-btn:hover {
+        color: var(--primary);
+    }
+        
         /* Form */
         .form-container { max-width: 700px; margin: 0 auto; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         input, textarea { width: 100%; padding: 15px; margin-bottom: 20px; border: 2px solid #eee; border-radius: 10px; font-family: inherit; }
@@ -197,18 +255,21 @@
             <h2>Electrochemical Resources</h2>
             <div class="grid">
                 <div class="card reveal">
-                    <h3>Mass Transport</h3>
-                    <p>Understanding Nernst-Planck equations in flow cell environments.</p>
-                    <a href="analysis.html" class="concept-link">Launch Analysis GUI →</a>
+                   <h3>Mass Transport & Flow Analysis</h3>
+                <p>Interactive dimensional analysis tool for calculating Reynolds ($Re$), Péclet ($Pe$), and Damköhler ($Da$) numbers alongside binding kinetics profiles in microfluidic flow cells.</p>
+                <!-- Clickable Modal Trigger -->
+                <button class="btn-calc" onclick="openAppModal()">
+                    🚀 Launch Interactive Calculator
+                </button>
                 </div>
+                
                 <div class="card reveal">
-                    <h3>EIS Fundamentals</h3>
-                    <p>A technical guide to understanding Nyquist plots and equivalent circuit modeling.</p>
-                    <a href="#" class="concept-link">Read More →</a>
+                    <h3>EIS Analysis & Circuit Modeling</h3>
+                    <p>Guidance and reference tools for interpreting Nyquist & Bode plots, equivalent circuit fitting, and charge transfer resistance analysis.</p>                    <a href="#" class="concept-link">Read More →</a>
                 </div>
                 <div class="card reveal">
                     <h3>Membrane Science</h3>
-                    <p>Insights into ion-exchange efficiency and concentration polarization.</p>
+                    <p>Technical papers and computational insights into concentration polarization, ion exchange selectivity, and profiled membrane hydrodynamics.</p>
                     <a href="#" class="concept-link">Read More →</a>
                 </div>
             </div>
@@ -228,7 +289,14 @@
             </div>
         </div>
     </section>
-
+    
+<!-- POP-UP MODAL WINDOW FOR APP -->
+<div id="appModal" class="modal-overlay" onclick="closeModalOnOuterClick(event)">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeAppModal()">&times;</span>
+        <iframe src="https://aptasense.streamlit.app/?embed=true" width="100%" height="93%" style="border:none; margin-top:20px;"></iframe>
+    </div>
+</div>
     <footer>
         <div class="footer-grid">
             <div>
@@ -255,9 +323,20 @@
         </div>
     </footer>
 
-    <script>
-        ScrollReveal().reveal('.reveal', { delay: 200, distance: '50px', duration: 1000, origin: 'bottom', interval: 100 });
-        ScrollReveal().reveal('h2', { delay: 100, distance: '30px', origin: 'left', duration: 800 });
-    </script>
+    <!-- JAVASCRIPT FOR MODAL INTERACTION -->
+<script>
+function openAppModal() {
+    document.getElementById('appModal').style.display = 'block';
+}
+function closeAppModal() {
+    document.getElementById('appModal').style.display = 'none';
+}
+function closeModalOnOuterClick(event) {
+    if (event.target === document.getElementById('appModal')) {
+        closeAppModal();
+    }
+}
+</script>
+    
 </body>
 </html>
