@@ -77,6 +77,28 @@
         #products-fullwidth .card { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); color: white; }
         #products-fullwidth .card h3 { color: var(--accent); }
 
+        /* RECOMMENDATIONS SECTION STYLING */
+        #recommendations { background: #f0f4f9; }
+        .sub-category-title { font-family: 'Montserrat'; font-size: 1.5rem; color: var(--primary); margin: 40px 0 20px; display: flex; align-items: center; gap: 10px; }
+        .partner-badge { font-size: 0.7rem; background: #e0f2fe; color: #0369a1; padding: 4px 10px; border-radius: 50px; font-weight: 700; align-self: flex-start; margin-bottom: 15px; text-transform: uppercase; }
+        .btn-external {
+            display: inline-block;
+            margin-top: auto;
+            padding: 10px 16px;
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            transition: var(--transition);
+        }
+        .btn-external:hover { background-color: var(--primary); color: #ffffff; }
+        .disclaimer-box { margin-top: 50px; padding: 20px; background: rgba(0, 78, 146, 0.05); border-left: 4px solid var(--primary); border-radius: 8px; font-size: 0.85rem; color: #555; }
+        
         /* Resources */
         #resources { background: #eef2f7; }
         .concept-link { margin-top: auto; color: var(--primary); font-weight: bold; text-decoration: none; font-size: 0.9rem; }
@@ -180,6 +202,7 @@
             <a href="#services">Services</a>
             <a href="#products-fullwidth">Products</a>
             <a href="#applications">Applications</a>
+            <a href="#recommendations">Recommendations</a>
             <a href="#resources">Resources</a>
             <a href="#contact">Contact</a>
         </div>
@@ -252,12 +275,78 @@
         </div>
     </div>
 
+<!-- RECOMMENDED THIRD-PARTY COMPONENTS SECTION -->
+    <section id="recommendations">
+        <div class="container">
+            <h2>Recommended Hardware & Components</h2>
+            <p style="font-size: 1.1rem; color: #555; margin-bottom: 30px;">
+                Hand-picked hardware, flow cells, and sensors vetted by our engineering team to complement your electro-fluidic setups.
+            </p>
+
+            <!-- CATEGORY 1: MICROFLUIDICS -->
+            <div class="sub-category-title"><i class="fa-solid fa-vial"></i> 1. Microfluidic Components</div>
+            <div class="grid">
+                <div class="card reveal">
+                    <span class="partner-badge">Curated Partner</span>
+                    <h3>Precision Microfluidic Chip</h3>
+                    <p>PDMS/Glass hybrid microchannel chips optimized for laminar flow and rapid species mixing.</p>
+                    <a href="https://example-supplier-link.com/chip" target="_blank" rel="noopener" class="btn-external">View Supplier Page <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+                <div class="card reveal">
+                    <span class="partner-badge">Recommended</span>
+                    <h3>Pulseless Peristaltic Pump</h3>
+                    <p>Ultra-low flow rate liquid delivery system ideal for sensitive electrochemical sensor channels.</p>
+                    <a href="https://example-supplier-link.com/pump" target="_blank" rel="noopener" class="btn-external">View Supplier Page <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+
+            <!-- CATEGORY 2: CELL STACKS -->
+            <div class="sub-category-title"><i class="fa-solid fa-cubes-stacked"></i> 2. Electrochemical Cell Stacks</div>
+            <div class="grid">
+                <div class="card reveal">
+                    <span class="partner-badge">Benchtop Benchmark</span>
+                    <h3>Zero-Gap Flow Cell Architecture</h3>
+                    <p>Standardized lab-scale electrolyzer hardware engineered for low internal resistance and uniform flow distribution.</p>
+                    <a href="https://example-supplier-link.com/cellstack" target="_blank" rel="noopener" class="btn-external">View Supplier Page <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+                <div class="card reveal">
+                    <span class="partner-badge">Recommended</span>
+                    <h3>Titanium Flow Field Plates</h3>
+                    <p>Corrosion-resistant flow field plates designed for high-potential acid/alkaline water splitting.</p>
+                    <a href="https://example-supplier-link.com/flowplate" target="_blank" rel="noopener" class="btn-external">View Supplier Page <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+
+            <!-- CATEGORY 3: SENSORS -->
+            <div class="sub-category-title"><i class="fa-solid fa-microchip"></i> 3. Sensor Components</div>
+            <div class="grid">
+                <div class="card reveal">
+                    <span class="partner-badge">Curated Partner</span>
+                    <h3>Screen-Printed Electrodes (SPE)</h3>
+                    <p>High-reproducibility carbon, gold, and platinum SPEs for rapid biosensor prototyping.</p>
+                    <a href="https://example-supplier-link.com/spe" target="_blank" rel="noopener" class="btn-external">View Supplier Page <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+                <div class="card reveal">
+                    <span class="partner-badge">Recommended</span>
+                    <h3>Micro-Reference Electrodes (Ag/AgCl)</h3>
+                    <p>Miniaturized reference electrodes designed specifically for tight integration into microfluidic channels.</p>
+                    <a href="https://example-supplier-link.com/refelectrode" target="_blank" rel="noopener" class="btn-external">View Supplier Page <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+
+            <!-- LEGAL & REFERRAL DISCLAIMER -->
+            <div class="disclaimer-box">
+                <i class="fa-solid fa-circle-info"></i> <strong>Disclaimer:</strong> Products listed in this section are third-party components recommended for research and prototyping. Clicking these links will redirect you to the respective supplier's official platform. Electro-Fluidics does not manufacture or directly sell these third-party products unless explicitly specified.
+            </div>
+        </div>
+    </section>
+    
     <section id="resources">
         <div class="container">
             <h2>Electrochemical Resources</h2>
             <div class="grid">
                 <div class="card reveal">
-                   <h3>Mass Transport & Flow Analysis</h3>
+                   <h3>Mass Transport calculator</h3>
                 <p>Interactive dimensional analysis tool for calculating Reynolds (Re), Péclet (Pe), and Damköhler (Da) numbers alongside binding kinetics profiles in microfluidic integrated biosensors.</p>
                 <!-- Clickable Modal Trigger -->
                 <button class="btn-calc" onclick="openAppModal()">
